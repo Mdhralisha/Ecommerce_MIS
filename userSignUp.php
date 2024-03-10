@@ -1,3 +1,13 @@
+<?php
+if(isset($_GET['condition'])){  
+?>
+<script>alert("user already exists")</script>
+<?php
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,18 +25,18 @@
                 <form action="backend/userSignupApi.php" method="post" style="margin-left:1rem">
                 <h3 class="login-head">User Signup</h3>
                     <label for="customer_name">Customer Name:</label><br>
-                    <input type="text" name="customer_name" id="username"><br><br>
+                    <input type="text" name="customer_name" id="username" required><br><br>
                     <label for="address">Address:</label><br>
-                    <input type="text" name="address" id="password">
+                    <input type="text" name="address" id="password" required>
                     <br><br>
                     <label for="contact">Contact No:</label><br>
-                    <input type="text" name="contact" id="password">
+                    <input type="text" name="contact" id="password" required>
                     <br><br>
                     <label for="username">Username:</label><br>
-                    <input type="text" name="username" id="password">
+                    <input type="text" name="username" id="password" required>
                     <br><br>
                     <label for="password">Password:</label><br>
-                    <input type="password" name="password" id="password">
+                    <input type="password" name="password" id="password" required>
                     <br><br>
                    
                     

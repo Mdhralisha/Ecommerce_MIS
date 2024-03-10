@@ -16,12 +16,11 @@ if($product_category=="1"){
     $file = '../uploads/' . $filename;
 move_uploaded_file($temp_name, $file);
 
-$sql = "INSERT INTO product_details(product_name,product_price,product_image,product_qty,product_desc,category)values('$product_name','$product_price','$filename','$product_quantity','$product_desc','$category')";
-
+$sql = "INSERT INTO product_details(product_name,product_price,product_image,product_qty,product_desc,category)values('$product_name','$product_price','$filename','$product_quantity','$product_desc','$product_category')";
 $result = mysqli_query($conn,$sql);
 
 if($result){
-    header('location:../Admin/productAdd.php');
+    header('location:../Admin/productdisplay.php');
 }else{
     echo"failed";
 }

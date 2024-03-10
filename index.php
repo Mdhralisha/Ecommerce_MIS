@@ -30,7 +30,7 @@
       <?php
       include "config/db.php";
 
-      $sql = "select * from product_details";
+      $sql = "select * from product_details order by product_id desc";
       $result = mysqli_query($conn, $sql);
 
       while ($row = mysqli_fetch_assoc($result)) {

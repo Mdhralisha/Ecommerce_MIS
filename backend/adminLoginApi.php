@@ -15,6 +15,8 @@ while($row=mysqli_fetch_assoc($result)){
     if($username==$db_username){
         if(password_verify($password,$db_password)){
             header('location:../Admin/AdminDashboard.php');
+            session_start();
+            $_SESSION['admin_username']=$username;
             break;
         }else{
             echo("Failed");

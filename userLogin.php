@@ -15,9 +15,9 @@
                 <form action="backend/userLoginApi.php" method="post" style="margin-left:1rem">
                 <h3 class="login-head">User Sign</h3>
                     <label for="username">Username:</label><br>
-                    <input type="text" name="username" id="username"><br><br>
+                    <input type="text" name="username" id="username" required><br><br>
                     <label for="password">Password:</label><br>
-                    <input type="password" name="password" id="password"><br>
+                    <input type="password" name="password" id="password" required><br>
                     <a href="userSignUp.php">Doesnot have a account? Sign up</a>
                     <br><br>
                     

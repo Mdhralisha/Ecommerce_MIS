@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary py-3" data-bs-theme="light" >
   <div class="container-fluid">
-    <a class="navbar-brand ml-5" href="/Ecommerce">Skin Care Savvy</a>
+    <a class="navbar-brand ml-5" href="/Ecommerce">The Skin Savvy</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

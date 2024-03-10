@@ -1,3 +1,7 @@
+<?php
+session_start();
+if(isset($_SESSION['admin_username'])){
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +15,8 @@
 
 </head>
 <body>
-    
+
+
     </div>
     <?php include "../components/AdminNav.php" ?>
     <div class="main-container">
@@ -20,21 +25,21 @@
             <form action="../backend/productAddApi.php" method="post" enctype="multipart/form-data" style="margin-left:1rem">
             <h3 class="login-head">Add Product</h3>
                 <label for="productName">Product Name:</label><br>
-                <input type="text" name="productName" id="username"><br><br>
+                <input type="text" name="productName" id="username" required><br><br>
                 <label for="price">Price:</label><br>
-                <input type="text" name="price" id="password"><br><br>
+                <input type="text" name="price" id="password" required min=1><br><br>
                 <label for="quantity">Quantity:</label><br>
-                <input type="text" name="quantity" id="password"><br><br>
+                <input type="text" name="quantity" id="password" required min=1><br><br>
                 <label for="category">Category:</label><br>
-                <select name="category" id="password">
+                <select name="category" id="password" required>
                     <option value="1">Select Category</option>
-                    <option value="cosmetics">Cosmetics</option>
+                    <option value="cosmetic">Cosmetics</option>
                     <option value="skinCare">Skin Care Products</option>
                 </select><br><br>
                 <label for="desc">Product Description:</label><br>
-                <textarea name="product-desc" id="" cols="52" rows="3"></textarea>
+                <textarea name="product-desc" id="" cols="52" rows="3" required></textarea>
                 <label for="price">Product Image:</label><br>
-                <input type="file" name="file" id="password"><br><br>
+                <input type="file" name="file" id="password" required><br><br>
                 <input type="submit" value="Add Product" class="btn btn-primary" id="login-btn">
             </form>
         </div>
@@ -46,3 +51,8 @@
     
 </body>
 </html>
+<?php
+}else{
+    header('location:Adminlogin.php');
+}
+?>

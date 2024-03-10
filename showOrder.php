@@ -24,7 +24,7 @@ if(isset($_SESSION['username'])){
         $count =0; 
         ?>
         <div class="container mt-5">
-            <h3>My Order List</h3>
+           <center> <h3>My Order List</h3></center><br><br>
             <table class="table table-striped" id="cart_tbl">
                 <thead>
                     <tr>

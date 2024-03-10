@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 26, 2024 at 04:21 AM
+-- Generation Time: Mar 10, 2024 at 06:37 AM
 -- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,6 +34,13 @@ CREATE TABLE `cart_tbl` (
   `qty` int(120) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `cart_tbl`
+--
+
+INSERT INTO `cart_tbl` (`cart_id`, `product_id`, `user_id`, `qty`) VALUES
+(23, 5, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -54,7 +61,11 @@ CREATE TABLE `customer_details` (
 --
 
 INSERT INTO `customer_details` (`customer_id`, `customer_name`, `address`, `contact_no`, `username`, `password`) VALUES
-(1, 'Alisha Manandhar', 'Kamalbinayak', '9861770872', 'alisha65', '$2y$10$vCnmuCQ.I8fW59gVF/So8eQcmvSNIC2jn47miouKfr4gfKTEwQOMe');
+(1, 'Alisha Manandhar', 'Kamalbinayak', '9861770872', 'alisha65', '$2y$10$vCnmuCQ.I8fW59gVF/So8eQcmvSNIC2jn47miouKfr4gfKTEwQOMe'),
+(2, 'Swexa Chhetri', 'Bhairahawa', '9869028576', 'cswexa', '$2y$10$hryjHAnKNirNYW2vJxaNfe5dU5u93xhSZ2hESQpi0NsOtWnNpt0MC'),
+(3, 'Nischal Shakya', 'Kumaripati', '9840151590', 'nischal1', '$2y$10$tgZ80UN2PmKwVYTVy/0g2uKN60xXXQ8K3CHbakKimkMt2MhoIveHO'),
+(4, 'Manisha Shrestha', 'Kalanki', '9841211651', 'manisha', '$2y$10$ALtP0VTpnHFhUYZaIebyK.3J81/M.0DC4jdU8EAMItBnPdo7pYh42'),
+(7, 'Urusha Mdhr', 'Satdobato', '9861781324', 'mdhrurusha', '$2y$10$ep/QQwn0NjqhVVWMdG81.egjXis9pEzLceh5K7c0vCMODmHC3pnPO');
 
 -- --------------------------------------------------------
 
@@ -76,13 +87,20 @@ CREATE TABLE `order_details` (
 --
 
 INSERT INTO `order_details` (`order_id`, `customer_id`, `product_id`, `qty`, `payment_status`, `order_status`) VALUES
-(1, 1, 1, 2, 'esewa', 'Pending'),
-(2, 1, 2, 1, 'esewa', 'Pending'),
-(3, 1, 3, 2, 'cash', 'Pending'),
-(4, 1, 2, 2, 'esewa', 'Pending'),
-(5, 1, 3, 1, 'esewa', 'Pending'),
-(6, 1, 1, 2, 'esewa', 'Pending'),
-(7, 1, 3, 1, 'esewa', 'Pending');
+(1, 1, 5, 2, 'esewa', 'Completed'),
+(2, 1, 6, 1, 'esewa', 'Completed'),
+(3, 1, 7, 2, 'cash', 'Pending'),
+(4, 1, 5, 2, 'esewa', 'Pending'),
+(5, 1, 8, 1, 'esewa', 'Pending'),
+(6, 1, 5, 2, 'esewa', 'Pending'),
+(7, 1, 7, 1, 'esewa', 'Completed'),
+(8, 2, 8, 1, 'cash', 'in_delivery'),
+(9, 1, 7, 1, 'esewa', 'Completed'),
+(10, 4, 15, 1, 'esewa', 'Pending'),
+(11, 4, 19, 1, 'esewa', 'Pending'),
+(12, 7, 15, 1, 'esewa', 'Completed'),
+(13, 7, 20, 1, 'esewa', 'Pending'),
+(14, 3, 14, 1, 'cash', 'Pending');
 
 -- --------------------------------------------------------
 
@@ -105,9 +123,15 @@ CREATE TABLE `product_details` (
 --
 
 INSERT INTO `product_details` (`product_id`, `product_name`, `product_price`, `product_image`, `product_qty`, `product_desc`, `category`) VALUES
-(1, 'CeraVe Lotion', 1300, 'ceravelotion.jpg', 5, 'A lightweight, oil-free moisturizer that helps hydrate the skin and restore its natural barrier', 'skinCare'),
-(2, 'Acmist Moisturizer', 631, 'Acmist.jpg', 6, 'a moisturizer used for oily and pimple-prone skin and sensitive skin.', 'skinCare'),
-(3, 'Mac Pallet', 1400, 'mac pallete.jpg', 8, 'offers a spectrum of shades, usually within the same color group, or at least in complementary shades', 'cosmetic');
+(5, 'Rimmel Red Lipstick', 400, 'lipstick2.jpg', 5, 'High colour impact for up to 8 hours wear. Colour that turns long-lasting colour up to 8 hours +25% colour impact •', 'cosmetic'),
+(6, 'Discoloration Serum', 1200, 'faceserum.webp', 8, 'Improve the appearance of skin discoloration and uneven skin tone with Discoloration Correcting Serum.', 'skinCare'),
+(7, 'UV Coz Sunscreen', 840, 'suns.jpg', 5, 'A photostable formula with broad spectrum filtering system, along with other powerful filters, protects the skin from UVA and UVB rays. ', 'skinCare'),
+(8, 'Rimmel Pencil Liner', 800, 'rimmel pencil.webp', 8, 'immel London Lasting Finish 8Hr Lip Liner gives long lasting definition to elevate your pout! The long-wearing formula of this liner ensures that it will stay in place flawlessly for up to 8 hours. ', 'cosmetic'),
+(14, 'Ordinary Serum', 2200, 'ordinary serum.jpeg', 8, 'vacs JSDV ', 'skinCare'),
+(15, 'Loreal Foundation', 1600, 'foundation.jpg', 10, 'A long lasting foundation with our most lightweight, breathable texture for up to 24 hours of fresh staying power. ', 'cosmetic'),
+(16, 'Cetaphil Cleanser', 700, 'cetaphil cleanser.jpg', 5, 'The gentle formula of Cetaphil Gentle Skin Cleanser helps to cleanse the skin without stripping it of its natural oils or causing irritation.', 'skinCare'),
+(20, 'CeraVe Hydrating', 2200, 'cerave hydrating.jpg', 8, 'Hydrating Facial Cleanser gently cleanses the skin.', 'skinCare'),
+(21, 'Cetaphil', 900, 'cetaphil mois.jpg', 4, 'Cetaphil moisturizer for dry and oily skin...', 'skinCare');
 
 -- --------------------------------------------------------
 
@@ -127,7 +151,7 @@ CREATE TABLE `user_details` (
 --
 
 INSERT INTO `user_details` (`user_id`, `username`, `password`, `email_id`) VALUES
-(1, 'admin', '$2y$10$XlBBW.mDUCAxdbpvrbv0aOsrj4W9fNv5kXeCbuZH.yqH6RP44FV8.', 'admin@gmail.com');
+(1, 'admin', '$2y$10$QGm9CGZwzwedity4yJWIX.LHKKOwZ.IvOaZW6/g8O1u5O337t3mRC', 'admin@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -171,25 +195,25 @@ ALTER TABLE `user_details`
 -- AUTO_INCREMENT for table `cart_tbl`
 --
 ALTER TABLE `cart_tbl`
-  MODIFY `cart_id` int(120) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `cart_id` int(120) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `customer_details`
 --
 ALTER TABLE `customer_details`
-  MODIFY `customer_id` int(120) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `customer_id` int(120) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `order_id` int(120) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `order_id` int(120) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `product_details`
 --
 ALTER TABLE `product_details`
-  MODIFY `product_id` int(120) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `product_id` int(120) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `user_details`
